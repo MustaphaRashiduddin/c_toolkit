@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Node	linked_list.c	/^struct Node {$/;"	s	file:
+Node	linked_list.c	/^typedef struct Node Node;$/;"	t	typeref:struct:Node	file:
+create	linked_list.c	/^Node *create(int data)$/;"	f
+data	linked_list.c	/^    int data;$/;"	m	struct:Node	file:
+dealloc	linked_list.c	/^Node *dealloc(Node *current)$/;"	f
+death_walker	linked_list.c	/^void death_walker(Node *current, int data) {$/;"	f
+del	linked_list.c	/^void del(Node **current, int data)$/;"	f
+main	linked_list.c	/^int main(int argc, char **argv) {$/;"	f
+main	voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f
+next	linked_list.c	/^    Node *next;$/;"	m	struct:Node	file:
+print	linked_list.c	/^void print(Node *current)$/;"	f
+push	linked_list.c	/^void push(Node *current, int data)$/;"	f
+walker	linked_list.c	/^Node *walker(Node *current)$/;"	f

@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+MALLOC	sayf_memory.h	/^#define MALLOC(/;"	d
+MallocedDataInfo	sayf_memory.c	/^struct MallocedDataInfo {$/;"	s	file:
+MallocedDataInfo	sayf_memory.c	/^typedef struct MallocedDataInfo MallocedDataInfo;$/;"	t	typeref:struct:MallocedDataInfo	file:
+Node	sayf_memory.c	/^struct Node {$/;"	s	file:
+Node	sayf_memory.c	/^typedef struct Node Node;$/;"	t	typeref:struct:Node	file:
+data	sayf_memory.c	/^    void* data;$/;"	m	struct:Node	file:
+file	sayf_memory.c	/^    const char* file;$/;"	m	struct:MallocedDataInfo	file:
+func	sayf_memory.c	/^    const char* func;$/;"	m	struct:MallocedDataInfo	file:
+id	sayf_memory.c	/^    const char* id;$/;"	m	struct:MallocedDataInfo	file:
+line	sayf_memory.c	/^    const int line;$/;"	m	struct:MallocedDataInfo	file:
+malloc_and_log	sayf_memory.c	/^void* malloc_and_log(const char* file, const char* func, const int line,$/;"	f
+n	sayf_memory.c	/^    const int n;$/;"	m	struct:MallocedDataInfo	file:
+next	sayf_memory.c	/^    Node* next;$/;"	m	struct:Node	file:
+sayf_memory_end	sayf_memory.c	/^void sayf_memory_end() {$/;"	f
+sayf_memory_start	sayf_memory.c	/^void sayf_memory_start() {$/;"	f
+size	sayf_memory.c	/^    const size_t size;$/;"	m	struct:MallocedDataInfo	file:
