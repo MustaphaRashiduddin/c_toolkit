@@ -6,10 +6,11 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 Node	linked_list.c	/^struct Node {$/;"	s	file:
 Node	linked_list.h	/^typedef struct Node Node;$/;"	t	typeref:struct:Node
+__LINKED_LIST_H__	linked_list.h	/^#define __LINKED_LIST_H__$/;"	d
 create	linked_list.c	/^Node *create(int data)$/;"	f
 data	linked_list.c	/^    int data;$/;"	m	struct:Node	file:
 dealloc	linked_list.c	/^Node *dealloc(Node *current)$/;"	f
-death_walker	linked_list.c	/^void death_walker(Node *current, int data) {$/;"	f
+death_walker	linked_list.c	/^void death_walker(Node *current, int data) $/;"	f
 del	linked_list.c	/^void del(Node **current, int data)$/;"	f
 main	main.c	/^int main(int argc, char **argv) {$/;"	f
 main	voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f

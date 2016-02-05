@@ -49,7 +49,8 @@ void del(Node **current, int data)
     }
 }
 
-void death_walker(Node *current, int data) {
+void death_walker(Node *current, int data) 
+{
     if (current->next != NULL && current->next->data != data) {
         death_walker(current->next, data);
     } else if (current->next != NULL && current->next->data == data) {
