@@ -3,14 +3,14 @@
 #include "linked_list.h"
 
 struct Node {
-    int data;
+    void *data;
     Node *next;
 };
 
 Node *walker(Node *current);
-void death_walker(Node *current, int data);
+void death_walker(Node *current, void *data);
 
-Node *create(int data)
+Node *create(void *data)
 {
     Node *current = (Node *)malloc(sizeof(Node));
     current->data = data;
@@ -18,7 +18,7 @@ Node *create(int data)
     return current;
 }
 
-void push(Node *current, int data)
+void push(Node *current, void *data)
 {
     current = walker(current);
     current->next = create(data);
@@ -33,12 +33,12 @@ Node *walker(Node *current)
 
 void print(Node *current)
 {
-    printf("*%d", current->data);
+    printf("*%d", *(int *)current->data);
     if (current->next != NULL)
         print(current->next);
 }
 
-void del(Node **current, int data)
+void del(Node **current, void *data)
 {
     if ((*current)->data == data) {
         Node *next = (*current)->next;
@@ -49,7 +49,7 @@ void del(Node **current, int data)
     }
 }
 
-void death_walker(Node *current, int data) 
+void death_walker(Node *current, void *data) 
 {
     if (current->next != NULL && current->next->data != data) {
         death_walker(current->next, data);
