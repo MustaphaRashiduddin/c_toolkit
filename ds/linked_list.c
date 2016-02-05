@@ -33,7 +33,7 @@ Node *walker(Node *current)
 
 void print(Node *current)
 {
-    printf("*%d", *(int *)current->data);
+    printf("%s ", (char *)current->data);
     if (current->next != NULL)
         print(current->next);
 }
