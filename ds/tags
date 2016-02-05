@@ -5,13 +5,13 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 Node	linked_list.c	/^struct Node {$/;"	s	file:
-Node	linked_list.c	/^typedef struct Node Node;$/;"	t	typeref:struct:Node	file:
+Node	linked_list.h	/^typedef struct Node Node;$/;"	t	typeref:struct:Node
 create	linked_list.c	/^Node *create(int data)$/;"	f
 data	linked_list.c	/^    int data;$/;"	m	struct:Node	file:
 dealloc	linked_list.c	/^Node *dealloc(Node *current)$/;"	f
 death_walker	linked_list.c	/^void death_walker(Node *current, int data) {$/;"	f
 del	linked_list.c	/^void del(Node **current, int data)$/;"	f
-main	linked_list.c	/^int main(int argc, char **argv) {$/;"	f
+main	main.c	/^int main(int argc, char **argv) {$/;"	f
 main	voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f
 next	linked_list.c	/^    Node *next;$/;"	m	struct:Node	file:
 print	linked_list.c	/^void print(Node *current)$/;"	f
