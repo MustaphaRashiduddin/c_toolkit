@@ -3,10 +3,10 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 Node	linked_list.h	/^struct Node {$/;"	s
 Node	linked_list.h	/^typedef struct Node Node;$/;"	t	typeref:struct:Node
-__LINKED_LIST_H__	linked_list.h	/^#define __LINKED_LIST_H__$/;"	d
+__LINKED_LIST_H__	linked_list.h	2;"	d
 create	linked_list.c	/^Node *create(void *data)$/;"	f
 data	linked_list.h	/^    void *data;$/;"	m	struct:Node
 dealloc	linked_list.c	/^Node *dealloc(Node *current)$/;"	f

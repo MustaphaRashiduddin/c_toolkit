@@ -57,7 +57,9 @@ void death_walker(Node *current, void *data)
 
 Node *dealloc(Node *current)
 {
-    if (current->next != NULL)
-        free(dealloc(current->next));
+    if (current->next != NULL) {
+        dealloc(current->next);
+    }
+    free(current);
     return NULL;
 }
