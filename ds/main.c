@@ -1,17 +1,13 @@
 #include <stdio.h>
 #include "linked_list.h"
 
+void print_string_node(Node *current);
+void print_int_node(Node *current);
 int main(int argc, char **argv) {
     double time_spent;
     
-    char* n[] = {
-        "Alan", "Frank",
-        "Mary", "John", "Lisa",
-        "Saif", "Ali", "Mahdi"
-    };
-
-    n[3] = "Bob";
-    /*int n[] = {1,3,7,11,4,7,1024,21};*/
+    char* n[] = {"Alan", "Frank", "Mary", "John", "Lisa", "Saif", "Ali", "Mahdi"};
+    /*int n[] = {1, 3, 7, 11, 4, 7, 1024, 21};*/
     Node *root = create(n[0]);
     push(root, n[1]);
     push(root, n[2]);
@@ -20,12 +16,24 @@ int main(int argc, char **argv) {
     push(root, n[5]);
     push(root, n[6]);
     push(root, n[7]);
-    del(&root, n[0]);
-    del(&root, n[1]);
-    del(&root, n[7]);
-    print(root);
+    /*del(&root, n[0]);*/
+    /*del(&root, n[1]);*/
+    /*del(&root, n[7]);*/
+    print(root, print_string_node);
     printf("\n");
     root = dealloc(root);
 
     return 0;
+}
+
+// printing strings
+void print_string_node(Node *current)
+{
+    printf("%s ", (char *)current->data);
+}
+
+// printing integers
+void print_int_node(Node *current)
+{
+    printf("%d ", *(int *)current->data);
 }

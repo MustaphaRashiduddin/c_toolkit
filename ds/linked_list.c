@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include "linked_list.h"
 
-struct Node {
-    void *data;
-    Node *next;
-};
-
 Node *walker(Node *current);
 void death_walker(Node *current, void *data);
 
@@ -31,11 +26,11 @@ Node *walker(Node *current)
     return current;
 }
 
-void print(Node *current)
+void print(Node *current, void (*ptr_print_node)(Node *current))
 {
-    printf("%s ", (char *)current->data);
+    ptr_print_node(current);
     if (current->next != NULL)
-        print(current->next);
+        print(current->next, ptr_print_node);
 }
 
 void del(Node **current, void *data)

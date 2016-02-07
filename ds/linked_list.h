@@ -3,10 +3,14 @@
 
 #include<stdlib.h>
 typedef struct Node Node;
+struct Node {
+    void *data;
+    Node *next;
+};
 Node *create(void *data);
 void push(Node *current, void *data);
 Node *dealloc(Node *current);
-void print(Node *current);
+void print(Node *current, void (*ptr_print_node)(Node *current));
 void del(Node **current, void *data);
 
 #endif
