@@ -1,35 +1,93 @@
+#include "string.h"
 #include "sayf_memory.h"
+#include "../ds/linked_list.h"
 
-typedef struct MallocedDataInfo MallocedDataInfo;
-typedef struct Node Node;
+struct Node *root;
 
 struct MallocedDataInfo {
-    // need memory address
-    const char* file;
-    const char* func;
-    const int line;
-    const size_t size;
-    const int n;
-    const char* id;
+    void *p;
+    char *file;
+    int line;
+    size_t size;
+    int n;
+    char *type;
 };
 
-struct Node {
-    void* data;
-    Node* next;
-};
+/*void sayf_memory_start(); */
+void print_node(struct Node *cur);
+char *getstr_m(char *s);
+struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, char *file, int line, char *type);
+void free_node(struct Node *cur);
 
-void sayf_memory_start() {
-    
+struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, char *file, int line, char *type)
+{
+    struct MallocedDataInfo *init = NULL;
+    init = malloc(sizeof(struct MallocedDataInfo));
+
+    if (init) {
+        init->p = p;
+        init->file = strdup(file);
+        init->line = line;
+        init->size = size;
+        init->n = n;
+        init->type = strdup(type);
+    } else {
+        printf("fail");
+        exit(1);
+    }
+
+    return init;
 }
 
-void sayf_memory_end() {
-
+void sayf_memory_start() 
+{
+    root = NULL;
 }
 
-void* malloc_and_log(const char* file, const char* func, const int line,
-        const size_t size, const int n, const char* type) {
-    void* p = malloc(sizeof(size*n));
-    fprintf(stderr, "%s:%s:%d\n", file, func, line);
-    printf("%s: %zu bytes | %d allocation(s) | block of %zu bytes not freed from %p\n", type, size, n, n*size, p);
+void sayf_memory_end() 
+{
+    root = dealloc(root, free_node);
+}
+
+char *getstr_m(char * s) 
+{
+    char *p = malloc(strlen(s)+1);
+    if (p) strcpy(p, s);
     return p;
+}
+
+void print_node(struct Node *cur)
+{
+    struct MallocedDataInfo *dat = cur->data;
+    printf("%s:%d | %p | %zu byte unit | %d allocations | %d bytes allocated | %s\n",
+            dat->file, dat->line, dat->p, dat->size, dat->n, (int)dat->size * dat->n, dat->type);
+}
+
+void printer()
+{
+    print(root, print_node);
+    /*print_node(root);*/
+}
+
+void* malloc_and_log(size_t size, int n, char *file, int line, char *type) 
+{
+    void* p = malloc(sizeof(size*n));
+    /*fprintf(stderr, "%s:%d\n", file, line);*/
+    /*printf("%zu bytes | %d allocation(s) | block of %zu bytes not freed from %p\n", size, n, (unsigned long)n*size, p);*/
+    struct MallocedDataInfo *dat = init_malloced_data_info(p, size, n, file, line, type);
+
+    if (root == NULL)
+        root = create(dat); 
+    else
+        push(root, dat);
+
+    return p;
+}
+
+void free_node(struct Node *cur)
+{
+    struct MallocedDataInfo *dat = cur->data;
+    free(dat->type);
+    free(dat->file);
+    free(dat);
 }

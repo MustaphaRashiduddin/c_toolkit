@@ -1,13 +1,21 @@
 #include "sayf_debug/sayf_memory.h"
+#include "ds/linked_list.h"
 
-int main(int argc, char **argv)
+int main()
 {
-    int *pNum = (int *)MALLOC(sizeof(int), 2);
-    /*printf("%p---\n", pNum);*/
-    char *l = (char *)MALLOC(sizeof(char), 3);
-    /*printf("%p---\n", l);*/
-    *pNum = 3;
+    sayf_memory_start();
+
+    int *pNum = MALLOC(sizeof(int), 2);
+    char *l = MALLOC(sizeof(char), 3);
+    /*float *sorry = MALLOC(sizeof(float), 1);*/
+
+    printer();
+
+    /**pNum = 3;*/
     free(pNum);
     free(l);
+
+    sayf_memory_end();
+
     return 0;
 }

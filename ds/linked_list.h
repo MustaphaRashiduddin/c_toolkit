@@ -1,16 +1,16 @@
-#ifndef __LINKED_LIST_H__
-#define __LINKED_LIST_H__
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
 
 #include<stdlib.h>
-typedef struct Node Node;
 struct Node {
     void *data;
-    Node *next;
+    struct Node *next;
 };
-Node *create(void *data);
-void push(Node *current, void *data);
-Node *dealloc(Node *current);
-void print(Node *current, void (*ptr_print_node)(Node *current));
-void del(Node **current, void *data);
+struct Node *create(void *data);
+void push(struct Node *current, void *data);
+//struct Node *dealloc(struct Node *current);
+struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *));
+void print(struct Node *current, void (*ptr_print_node)(struct Node *current));
+void del(struct Node **current, void *data);
 
 #endif

@@ -4,19 +4,18 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+LINKED_LIST_H	linked_list.h	2;"	d
 Node	linked_list.h	/^struct Node {$/;"	s
-Node	linked_list.h	/^typedef struct Node Node;$/;"	t	typeref:struct:Node
-__LINKED_LIST_H__	linked_list.h	2;"	d
-create	linked_list.c	/^Node *create(void *data)$/;"	f
+create	linked_list.c	/^struct Node *create(void *data)$/;"	f
 data	linked_list.h	/^    void *data;$/;"	m	struct:Node
-dealloc	linked_list.c	/^Node *dealloc(Node *current)$/;"	f
-death_walker	linked_list.c	/^void death_walker(Node *current, void *data) $/;"	f
-del	linked_list.c	/^void del(Node **current, void *data)$/;"	f
-main	main.c	/^int main(int argc, char **argv) {$/;"	f
+dealloc	linked_list.c	/^struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *))$/;"	f
+death_walker	linked_list.c	/^void death_walker(struct Node *current, void *data) $/;"	f
+del	linked_list.c	/^void del(struct Node **current, void *data)$/;"	f
+main	main.c	/^int main() {$/;"	f
 main	voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f
-next	linked_list.h	/^    Node *next;$/;"	m	struct:Node
-print	linked_list.c	/^void print(Node *current, void (*ptr_print_node)(Node *current))$/;"	f
-print_int_node	main.c	/^void print_int_node(Node *current)$/;"	f
-print_string_node	main.c	/^void print_string_node(Node *current)$/;"	f
-push	linked_list.c	/^void push(Node *current, void *data)$/;"	f
-walker	linked_list.c	/^Node *walker(Node *current)$/;"	f
+next	linked_list.h	/^    struct Node *next;$/;"	m	struct:Node	typeref:struct:Node::Node
+print	linked_list.c	/^void print(struct Node *current, void (*ptr_print_node)(struct Node *current))$/;"	f
+print_int_node	main.c	/^void print_int_node(struct Node *current)$/;"	f
+print_string_node	main.c	/^void print_string_node(struct Node *current)$/;"	f
+push	linked_list.c	/^void push(struct Node *current, void *data)$/;"	f
+walker	linked_list.c	/^struct Node *walker(struct Node *current)$/;"	f
