@@ -7,6 +7,7 @@
 FREE	sayf_memory.h	5;"	d
 MALLOC	sayf_memory.h	4;"	d
 MallocedDataInfo	sayf_memory.c	/^struct MallocedDataInfo {$/;"	s	file:
+comp_mallocedData	sayf_memory.c	/^int comp_mallocedData(void *malloced_dat, void *p) {$/;"	f
 file	sayf_memory.c	/^    char *file;$/;"	m	struct:MallocedDataInfo	file:
 free_and_log	sayf_memory.c	/^void free_and_log(void *p)$/;"	f
 free_node	sayf_memory.c	/^void free_node(struct Node *cur)$/;"	f

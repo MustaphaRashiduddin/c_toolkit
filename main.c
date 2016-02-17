@@ -9,13 +9,11 @@ int main()
     char *l = MALLOC(sizeof(char), 3);
     /*float *sorry = MALLOC(sizeof(float), 1);*/
 
-    printer();
 
     /**pNum = 3;*/
     FREE(pNum);
     FREE(l);
-
+    printer();
     sayf_memory_end();
-
     return 0;
 }

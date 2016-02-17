@@ -23,9 +23,9 @@ int main() {
     push(root, n[6]);
     push(root, n[7]);
     /*del(&root, n[0], cmp_str);*/
-    /*del(&root, n[1], cmp_str);*/
-    /*del(&root, n[3], cmp_str);*/
-    /*del(&root, n[4], cmp_str);*/
+    del(&root, n[1], cmp_str);
+    del(&root, n[3], cmp_str);
+    del(&root, n[4], cmp_str);
     /*del(&root, n[7], cmp_str);*/
     /*del(&root, n[6], cmp_str);*/
     /*del(&root, n[5], cmp_str);*/

@@ -12,7 +12,7 @@ create	linked_list.c	/^struct Node *create(void *data)$/;"	f
 data	linked_list.h	/^    void *data;$/;"	m	struct:Node
 dealloc	linked_list.c	/^struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *))$/;"	f
 death_walker	linked_list.c	/^void death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat))$/;"	f
-del	linked_list.c	/^void del(struct Node **current, void *data, int (*comp)(void *node, void *dat))$/;"	f
+del	linked_list.c	/^void del(struct Node **root, void *data, int (*comp)(void *node, void *dat))$/;"	f
 free_node	main.c	/^void free_node(struct Node *n)$/;"	f
 main	main.c	/^int main() {$/;"	f
 main	voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f

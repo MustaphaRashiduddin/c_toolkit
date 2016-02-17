@@ -89,7 +89,16 @@ void free_node(struct Node *cur)
     free(dat);
 }
 
+int comp_mallocedData(void *p1, void *p2);
+
 void free_and_log(void *p)
 {
+    del(&root, p, comp_mallocedData);
     free(p);
+}
+
+int comp_mallocedData(void *malloced_dat, void *p) {
+    struct MallocedDataInfo *dat = malloced_dat;
+    /*printf("%p ?= %p\n", dat->p, p);*/
+    return (dat->p == p);
 }

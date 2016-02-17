@@ -48,19 +48,19 @@ void print(struct Node *current, void (*ptr_print_node)(struct Node *current))
         /*death_walker(*current, data);*/
     /*}*/
 /*}*/
-void del(struct Node **current, void *data, int (*comp)(void *node, void *dat))
+void del(struct Node **root, void *data, int (*comp)(void *node, void *dat))
 {
-    if (comp((*current)->data, data)) {
-        if ((*current)->next != NULL) {
-            struct Node *next = (*current)->next;
-            free(*current);
-            *current = next;
+    if (comp((*root)->data, data)) {
+        if ((*root)->next != NULL) {
+            struct Node *next = (*root)->next;
+            free(*root);
+            *root = next;
         } else {
-            free(*current);
-            *current = NULL;
+            free(*root);
+            *root = NULL;
         }
     } else {
-        death_walker(*current, data, comp);
+        death_walker(*root, data, comp);
     }
 }
 /*void death_walker(struct Node *current, void *data) */
