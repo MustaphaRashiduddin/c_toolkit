@@ -26,11 +26,11 @@ struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, ch
 
     if (init) {
         init->p = p;
-        init->file = strdup(file);
+        init->file = getstr_m(file);
         init->line = line;
         init->size = size;
         init->n = n;
-        init->type = strdup(type);
+        init->type = getstr_m(type);
     } else {
         printf("fail");
         exit(1);
@@ -49,7 +49,7 @@ void sayf_memory_end()
     root = dealloc(root, free_node);
 }
 
-char *getstr_m(char * s) 
+char *getstr_m(char *s) 
 {
     char *p = malloc(strlen(s)+1);
     if (p) strcpy(p, s);
@@ -66,14 +66,11 @@ void print_node(struct Node *cur)
 void printer()
 {
     print(root, print_node);
-    /*print_node(root);*/
 }
 
-void* malloc_and_log(size_t size, int n, char *file, int line, char *type) 
+void *malloc_and_log(size_t size, int n, char *file, int line, char *type) 
 {
-    void* p = malloc(sizeof(size*n));
-    /*fprintf(stderr, "%s:%d\n", file, line);*/
-    /*printf("%zu bytes | %d allocation(s) | block of %zu bytes not freed from %p\n", size, n, (unsigned long)n*size, p);*/
+    void *p = malloc(sizeof(size*n));
     struct MallocedDataInfo *dat = init_malloced_data_info(p, size, n, file, line, type);
 
     if (root == NULL)
@@ -90,4 +87,9 @@ void free_node(struct Node *cur)
     free(dat->type);
     free(dat->file);
     free(dat);
+}
+
+void free_and_log(void *p)
+{
+    free(p);
 }

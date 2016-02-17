@@ -8,9 +8,9 @@ struct Node {
 };
 struct Node *create(void *data);
 void push(struct Node *current, void *data);
-//struct Node *dealloc(struct Node *current);
 struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *));
 void print(struct Node *current, void (*ptr_print_node)(struct Node *current));
-void del(struct Node **current, void *data);
+//void del(struct Node **current, void *data);
+void del(struct Node **current, void *data, int (*comp)(void *node, void *dat));
 
 #endif

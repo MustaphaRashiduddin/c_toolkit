@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <string.h>
 #include "linked_list.h"
 
 /*The sole purpose of this main.c file is to test the linked list*/
 
-void print_string_node(struct Node *current);
+void print_str_node(struct Node *current);
 void print_int_node(struct Node *current);
+void free_node(struct Node *n);
+int cmp_int(void *dat, void *cmp);
+int cmp_str(void *dat, void *cmp);
 int main() {
     
     char* n[] = {"Alan", "Frank", "Mary", "John", "Lisa", "Saif", "Ali", "Mahdi"};
@@ -13,22 +17,48 @@ int main() {
     push(root, n[1]);
     push(root, n[2]);
     push(root, n[3]);
+    /*del(&root, n[2], cmp_str);*/
     push(root, n[4]);
     push(root, n[5]);
     push(root, n[6]);
     push(root, n[7]);
-    /*del(&root, n[0]);*/
-    /*del(&root, n[1]);*/
-    /*del(&root, n[7]);*/
-    print(root, print_string_node);
+    /*del(&root, n[0], cmp_str);*/
+    /*del(&root, n[1], cmp_str);*/
+    /*del(&root, n[3], cmp_str);*/
+    /*del(&root, n[4], cmp_str);*/
+    /*del(&root, n[7], cmp_str);*/
+    /*del(&root, n[6], cmp_str);*/
+    /*del(&root, n[5], cmp_str);*/
+    print(root, print_str_node);
     printf("\n");
-    root = dealloc(root);
+    root = dealloc(root, free_node);
 
     return 0;
 }
 
+int cmp_int(void *dat, void *cmp)
+{
+    return (*(int *)dat == *(int *)cmp);
+}
+
+int cmp_str(void *dat, void *cmp)
+{
+    int val = strcmp((char *)dat, (char *)cmp);
+    /*printf("%s ?= %s | val = %d\n", (char *)dat, (char *)cmp, val);*/
+    if (val != 0)
+        return 0; 
+    else
+        return 1;
+}
+
+// do nothing
+void free_node(struct Node *n)
+{
+    n = NULL;
+}
+
 // printing strings
-void print_string_node(struct Node *current)
+void print_str_node(struct Node *current)
 {
     printf("%s ", (char *)current->data);
 }

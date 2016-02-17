@@ -4,6 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FREE	sayf_debug/sayf_memory.h	5;"	d
 LINKED_LIST_H	ds/linked_list.h	2;"	d
 MALLOC	sayf_debug/sayf_memory.h	4;"	d
 MallocedDataInfo	sayf_debug/sayf_memory.c	/^struct MallocedDataInfo {$/;"	s	file:
@@ -14,15 +15,16 @@ dealloc	ds/linked_list.c	/^struct Node *dealloc(struct Node *current, void (*fre
 death_walker	ds/linked_list.c	/^void death_walker(struct Node *current, void *data) $/;"	f
 del	ds/linked_list.c	/^void del(struct Node **current, void *data)$/;"	f
 file	sayf_debug/sayf_memory.c	/^    char *file;$/;"	m	struct:MallocedDataInfo	file:
+free_and_log	sayf_debug/sayf_memory.c	/^void free_and_log(void *p)$/;"	f
 free_node	sayf_debug/sayf_memory.c	/^void free_node(struct Node *cur)$/;"	f
-getstr_m	sayf_debug/sayf_memory.c	/^char *getstr_m(char * s) $/;"	f
+getstr_m	sayf_debug/sayf_memory.c	/^char *getstr_m(char *s) $/;"	f
 init_malloced_data_info	sayf_debug/sayf_memory.c	/^struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, char *file, int line, char *type)$/;"	f
 line	sayf_debug/sayf_memory.c	/^    int line;$/;"	m	struct:MallocedDataInfo	file:
 main	ds/main.c	/^int main() {$/;"	f
 main	ds/voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f
 main	main.c	/^int main()$/;"	f
 main	tuts/main.c	/^int main(int argc, char** argv)$/;"	f
-malloc_and_log	sayf_debug/sayf_memory.c	/^void* malloc_and_log(size_t size, int n, char *file, int line, char *type) $/;"	f
+malloc_and_log	sayf_debug/sayf_memory.c	/^void *malloc_and_log(size_t size, int n, char *file, int line, char *type) $/;"	f
 my_malloc	tuts/main.c	/^void my_malloc(void** p, size_t size)$/;"	f
 n	sayf_debug/sayf_memory.c	/^    int n;$/;"	m	struct:MallocedDataInfo	file:
 next	ds/linked_list.h	/^    struct Node *next;$/;"	m	struct:Node	typeref:struct:Node::Node

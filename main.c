@@ -12,8 +12,8 @@ int main()
     printer();
 
     /**pNum = 3;*/
-    free(pNum);
-    free(l);
+    FREE(pNum);
+    FREE(l);
 
     sayf_memory_end();
 

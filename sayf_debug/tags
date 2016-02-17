@@ -4,14 +4,16 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FREE	sayf_memory.h	5;"	d
 MALLOC	sayf_memory.h	4;"	d
 MallocedDataInfo	sayf_memory.c	/^struct MallocedDataInfo {$/;"	s	file:
 file	sayf_memory.c	/^    char *file;$/;"	m	struct:MallocedDataInfo	file:
+free_and_log	sayf_memory.c	/^void free_and_log(void *p)$/;"	f
 free_node	sayf_memory.c	/^void free_node(struct Node *cur)$/;"	f
-getstr_m	sayf_memory.c	/^char *getstr_m(char * s) $/;"	f
+getstr_m	sayf_memory.c	/^char *getstr_m(char *s) $/;"	f
 init_malloced_data_info	sayf_memory.c	/^struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, char *file, int line, char *type)$/;"	f
 line	sayf_memory.c	/^    int line;$/;"	m	struct:MallocedDataInfo	file:
-malloc_and_log	sayf_memory.c	/^void* malloc_and_log(size_t size, int n, char *file, int line, char *type) $/;"	f
+malloc_and_log	sayf_memory.c	/^void *malloc_and_log(size_t size, int n, char *file, int line, char *type) $/;"	f
 n	sayf_memory.c	/^    int n;$/;"	m	struct:MallocedDataInfo	file:
 p	sayf_memory.c	/^    void *p;$/;"	m	struct:MallocedDataInfo	file:
 print_node	sayf_memory.c	/^void print_node(struct Node *cur)$/;"	f

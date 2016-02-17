@@ -6,16 +6,19 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 LINKED_LIST_H	linked_list.h	2;"	d
 Node	linked_list.h	/^struct Node {$/;"	s
+cmp_int	main.c	/^int cmp_int(void *dat, void *cmp)$/;"	f
+cmp_str	main.c	/^int cmp_str(void *dat, void *cmp)$/;"	f
 create	linked_list.c	/^struct Node *create(void *data)$/;"	f
 data	linked_list.h	/^    void *data;$/;"	m	struct:Node
 dealloc	linked_list.c	/^struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *))$/;"	f
-death_walker	linked_list.c	/^void death_walker(struct Node *current, void *data) $/;"	f
-del	linked_list.c	/^void del(struct Node **current, void *data)$/;"	f
+death_walker	linked_list.c	/^void death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat))$/;"	f
+del	linked_list.c	/^void del(struct Node **current, void *data, int (*comp)(void *node, void *dat))$/;"	f
+free_node	main.c	/^void free_node(struct Node *n)$/;"	f
 main	main.c	/^int main() {$/;"	f
 main	voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f
 next	linked_list.h	/^    struct Node *next;$/;"	m	struct:Node	typeref:struct:Node::Node
 print	linked_list.c	/^void print(struct Node *current, void (*ptr_print_node)(struct Node *current))$/;"	f
 print_int_node	main.c	/^void print_int_node(struct Node *current)$/;"	f
-print_string_node	main.c	/^void print_string_node(struct Node *current)$/;"	f
+print_str_node	main.c	/^void print_str_node(struct Node *current)$/;"	f
 push	linked_list.c	/^void push(struct Node *current, void *data)$/;"	f
 walker	linked_list.c	/^struct Node *walker(struct Node *current)$/;"	f
