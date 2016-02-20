@@ -3,7 +3,7 @@
 #include "linked_list.h"
 
 struct Node *walker(struct Node *current);
-void death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node));
+int death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node));
 
 struct Node *create(void *data)
 {
@@ -37,34 +37,39 @@ void print(struct Node *current, void (*ptr_print_node)(struct Node *current))
         }
 }
 
-void del(struct Node **root, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))
+int del(struct Node **root, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))
 {
+        if (*root == NULL) return 0;
         if (comp((*root)->data, data)) {
                 if ((*root)->next != NULL) {
                         struct Node *next = (*root)->next;
                         free_node(*root);
                         free(*root);
                         *root = next;
+                        return 1;
                 } else {
                         free_node(*root);
                         free(*root);
                         *root = NULL;
+                        return 1;
                 }
         } else {
-                death_walker(*root, data, comp, free_node);
+                return (death_walker(*root, data, comp, free_node));
         }
 }
 
-void death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))
+int death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))
 {
         if (current->next != NULL && !comp(current->next->data, data)) {
-                death_walker(current->next, data, comp, free_node);
+                return (death_walker(current->next, data, comp, free_node));
         } else if (current->next != NULL && comp(current->next->data, data)) {
                 struct Node *next = current->next;
                 current->next = next->next;
                 free_node(next);
                 free(next);
+                return 1;
         } 
+        return 0;
 }
 
 struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *))
@@ -72,7 +77,7 @@ struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *))
         if (current != NULL) {
                 if (current->next != NULL) {
                         dealloc(current->next, free_node);
-        }
+                }
                 free_node(current);
                 free(current);
         }

@@ -3,23 +3,35 @@
 
 int main()
 {
-        sayf_memory_start();
+        START();
+        ////////////////////////
 
-        int *pNum = MALLOC(sizeof(int), 2);
-        char *l = MALLOC(sizeof(char), 3);
-        float *sorry = MALLOC(sizeof(float), 31);
+        int r = 3;
+        int c = 4;
 
+        int **arr = MALLOC(sizeof(int *), r);
+        for (int i=0; i<r; i++)
+                arr[i] = MALLOC(sizeof(int), c);
 
-        /**pNum = 3;*/
-        FREE(pNum);
-        /*free(pNum);*/
-        FREE(l);
-        /*free(l);*/
-        FREE(sorry);
+        int count = 0;
+        for (int i=0; i<r; i++)
+                for (int j=0; j<c; j++)
+                        arr[i][j] = ++count;
 
-        double *dvar = MALLOC(sizeof(double), 100);
-        free(dvar);
-        printer();
-        sayf_memory_end();
+        for (int i=0; i<r; i++) {
+                for (int j=0; j<c; j++)
+                        printf("%d ", arr[i][j]);
+                printf("\n");
+        }
+
+        for (int i=0; i<r; i++) {
+                FREE(arr[i]);
+                arr[i] = NULL;
+        }
+        FREE(arr);
+        
+        ////////////////////////
+        REPORT();
+        END();
         return 0;
 }

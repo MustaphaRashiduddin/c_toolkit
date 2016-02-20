@@ -4,23 +4,34 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-FREE	sayf_debug/sayf_memory.h	5;"	d
+END	sayf_debug/sayf_memory.h	15;"	d
+END	sayf_debug/sayf_memory.h	9;"	d
+FREE	sayf_debug/sayf_memory.h	11;"	d
+FREE	sayf_debug/sayf_memory.h	17;"	d
 LINKED_LIST_H	ds/linked_list.h	2;"	d
-MALLOC	sayf_debug/sayf_memory.h	4;"	d
+MALLOC	sayf_debug/sayf_memory.h	10;"	d
+MALLOC	sayf_debug/sayf_memory.h	16;"	d
 MallocedDataInfo	sayf_debug/sayf_memory.c	/^struct MallocedDataInfo {$/;"	s	file:
 Node	ds/linked_list.h	/^struct Node {$/;"	s
+REPORT	sayf_debug/sayf_memory.h	12;"	d
+REPORT	sayf_debug/sayf_memory.h	18;"	d
+SAYF_MEMORY_H	sayf_debug/sayf_memory.h	2;"	d
+START	sayf_debug/sayf_memory.h	14;"	d
+START	sayf_debug/sayf_memory.h	8;"	d
 cmp_int	ds/main.c	/^int cmp_int(void *dat, void *cmp)$/;"	f
 cmp_str	ds/main.c	/^int cmp_str(void *dat, void *cmp)$/;"	f
-comp_mallocedData	sayf_debug/sayf_memory.c	/^int comp_mallocedData(void *malloced_dat, void *p) {$/;"	f
+comp_mallocedData	sayf_debug/sayf_memory.c	/^int comp_mallocedData(void *malloced_dat, void *p) $/;"	f
 create	ds/linked_list.c	/^struct Node *create(void *data)$/;"	f
 data	ds/linked_list.h	/^        void *data;$/;"	m	struct:Node
 dealloc	ds/linked_list.c	/^struct Node *dealloc(struct Node *current, void (*free_node)(struct Node *))$/;"	f
-death_walker	ds/linked_list.c	/^void death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))$/;"	f
-del	ds/linked_list.c	/^void del(struct Node **root, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))$/;"	f
+death_walker	ds/linked_list.c	/^int death_walker(struct Node *current, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))$/;"	f
+del	ds/linked_list.c	/^int del(struct Node **root, void *data, int (*comp)(void *node, void *dat), void (*free_node)(struct Node *node))$/;"	f
+delstat	ds/main.c	/^void delstat(int del)$/;"	f
 file	sayf_debug/sayf_memory.c	/^        char *file;$/;"	m	struct:MallocedDataInfo	file:
-free_and_log	sayf_debug/sayf_memory.c	/^void free_and_log(void *p)$/;"	f
+free_and_log	sayf_debug/sayf_memory.c	/^void free_and_log(void *p, char *file, int line)$/;"	f
 free_node	ds/main.c	/^void free_node(struct Node *n)$/;"	f
 free_node	sayf_debug/sayf_memory.c	/^void free_node(struct Node *cur)$/;"	f
+free_only	sayf_debug/sayf_memory.c	/^void free_only(void *p)$/;"	f
 getstr_m	sayf_debug/sayf_memory.c	/^char *getstr_m(char *s) $/;"	f
 init_malloced_data_info	sayf_debug/sayf_memory.c	/^struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, char *file, int line, char *type)$/;"	f
 line	sayf_debug/sayf_memory.c	/^        int line;$/;"	m	struct:MallocedDataInfo	file:
@@ -29,6 +40,7 @@ main	ds/voidPointerTut.c	/^int main(int argc, char **argv)$/;"	f
 main	main.c	/^int main()$/;"	f
 main	tuts/main.c	/^int main(int argc, char** argv)$/;"	f
 malloc_and_log	sayf_debug/sayf_memory.c	/^void *malloc_and_log(size_t size, int n, char *file, int line, char *type) $/;"	f
+malloc_only	sayf_debug/sayf_memory.c	/^void *malloc_only(size_t size, int n)$/;"	f
 my_malloc	tuts/main.c	/^void my_malloc(void** p, size_t size)$/;"	f
 n	sayf_debug/sayf_memory.c	/^        int n;$/;"	m	struct:MallocedDataInfo	file:
 next	ds/linked_list.h	/^        struct Node *next;$/;"	m	struct:Node	typeref:struct:Node::Node
@@ -36,9 +48,12 @@ p	sayf_debug/sayf_memory.c	/^        void *p;$/;"	m	struct:MallocedDataInfo	file
 print	ds/linked_list.c	/^void print(struct Node *current, void (*ptr_print_node)(struct Node *current))$/;"	f
 print_int_node	ds/main.c	/^void print_int_node(struct Node *current)$/;"	f
 print_node	sayf_debug/sayf_memory.c	/^void print_node(struct Node *cur)$/;"	f
+print_nothing	sayf_debug/sayf_memory.c	/^void print_nothing(){}$/;"	f
 print_str_node	ds/main.c	/^void print_str_node(struct Node *current)$/;"	f
 printer	sayf_debug/sayf_memory.c	/^void printer()$/;"	f
 push	ds/linked_list.c	/^void push(struct Node *current, void *data)$/;"	f
+rawend	sayf_debug/sayf_memory.c	/^void rawend(){}$/;"	f
+rawstart	sayf_debug/sayf_memory.c	/^void rawstart(){}$/;"	f
 root	sayf_debug/sayf_memory.c	/^struct Node *root;$/;"	v	typeref:struct:Node
 sayf_memory_end	sayf_debug/sayf_memory.c	/^void sayf_memory_end() $/;"	f
 sayf_memory_start	sayf_debug/sayf_memory.c	/^void sayf_memory_start() $/;"	f

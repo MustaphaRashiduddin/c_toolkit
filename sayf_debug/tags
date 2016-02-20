@@ -4,21 +4,35 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-FREE	sayf_memory.h	5;"	d
-MALLOC	sayf_memory.h	4;"	d
+END	sayf_memory.h	15;"	d
+END	sayf_memory.h	9;"	d
+FREE	sayf_memory.h	11;"	d
+FREE	sayf_memory.h	17;"	d
+MALLOC	sayf_memory.h	10;"	d
+MALLOC	sayf_memory.h	16;"	d
 MallocedDataInfo	sayf_memory.c	/^struct MallocedDataInfo {$/;"	s	file:
-comp_mallocedData	sayf_memory.c	/^int comp_mallocedData(void *malloced_dat, void *p) {$/;"	f
+REPORT	sayf_memory.h	12;"	d
+REPORT	sayf_memory.h	18;"	d
+SAYF_MEMORY_H	sayf_memory.h	2;"	d
+START	sayf_memory.h	14;"	d
+START	sayf_memory.h	8;"	d
+comp_mallocedData	sayf_memory.c	/^int comp_mallocedData(void *malloced_dat, void *p) $/;"	f
 file	sayf_memory.c	/^        char *file;$/;"	m	struct:MallocedDataInfo	file:
-free_and_log	sayf_memory.c	/^void free_and_log(void *p)$/;"	f
+free_and_log	sayf_memory.c	/^void free_and_log(void *p, char *file, int line)$/;"	f
 free_node	sayf_memory.c	/^void free_node(struct Node *cur)$/;"	f
+free_only	sayf_memory.c	/^void free_only(void *p)$/;"	f
 getstr_m	sayf_memory.c	/^char *getstr_m(char *s) $/;"	f
 init_malloced_data_info	sayf_memory.c	/^struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, char *file, int line, char *type)$/;"	f
 line	sayf_memory.c	/^        int line;$/;"	m	struct:MallocedDataInfo	file:
 malloc_and_log	sayf_memory.c	/^void *malloc_and_log(size_t size, int n, char *file, int line, char *type) $/;"	f
+malloc_only	sayf_memory.c	/^void *malloc_only(size_t size, int n)$/;"	f
 n	sayf_memory.c	/^        int n;$/;"	m	struct:MallocedDataInfo	file:
 p	sayf_memory.c	/^        void *p;$/;"	m	struct:MallocedDataInfo	file:
 print_node	sayf_memory.c	/^void print_node(struct Node *cur)$/;"	f
+print_nothing	sayf_memory.c	/^void print_nothing(){}$/;"	f
 printer	sayf_memory.c	/^void printer()$/;"	f
+rawend	sayf_memory.c	/^void rawend(){}$/;"	f
+rawstart	sayf_memory.c	/^void rawstart(){}$/;"	f
 root	sayf_memory.c	/^struct Node *root;$/;"	v	typeref:struct:Node
 sayf_memory_end	sayf_memory.c	/^void sayf_memory_end() $/;"	f
 sayf_memory_start	sayf_memory.c	/^void sayf_memory_start() $/;"	f

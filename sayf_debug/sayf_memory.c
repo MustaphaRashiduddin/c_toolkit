@@ -39,15 +39,23 @@ struct MallocedDataInfo *init_malloced_data_info(void *p, size_t size, int n, ch
         return init;
 }
 
+/*void free_only(void *p);*/
+
 void sayf_memory_start() 
 {
         root = NULL;
 }
 
+// do nothing
+void rawstart(){}
+
 void sayf_memory_end() 
 {
         root = dealloc(root, free_node);
 }
+
+// do nothing
+void rawend(){}
 
 char *getstr_m(char *s) 
 {
@@ -68,6 +76,9 @@ void printer()
         print(root, print_node);
 }
 
+// do nothing
+void print_nothing(){}
+
 void *malloc_and_log(size_t size, int n, char *file, int line, char *type) 
 {
         void *p = malloc(sizeof(size*n));
@@ -81,6 +92,11 @@ void *malloc_and_log(size_t size, int n, char *file, int line, char *type)
         return p;
 }
 
+void *malloc_only(size_t size, int n)
+{
+        return malloc(sizeof(size*n));
+}
+
 void free_node(struct Node *cur)
 {
         struct MallocedDataInfo *dat = cur->data;
@@ -89,15 +105,25 @@ void free_node(struct Node *cur)
         free(dat);
 }
 
-int comp_mallocedData(void *p1, void *p2);
-
-void free_and_log(void *p)
+void free_only(void *p)
 {
-        del(&root, p, comp_mallocedData, free_node);
         free(p);
 }
 
-int comp_mallocedData(void *malloced_dat, void *p) {
+int comp_mallocedData(void *p1, void *p2);
+
+void free_and_log(void *p, char *file, int line)
+{
+        if (del(&root, p, comp_mallocedData, free_node)) {
+                free(p);
+        } else {
+                printf("%s:%d | free error\n", file, line);
+                exit(1);
+        }
+}
+
+int comp_mallocedData(void *malloced_dat, void *p) 
+{
         struct MallocedDataInfo *dat = malloced_dat;
         /*printf("%p ?= %p\n", dat->p, p);*/
         return (dat->p == p);
